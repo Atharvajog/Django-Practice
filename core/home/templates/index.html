@@ -1,0 +1,31 @@
+{%extends "base.html" %}
+{%block start %}
+    <a href="about-html">About</a>
+    <h1>Hello this is h1 tag</h1>
+    <table class="table table-hover">
+        <tr>
+          <th>Sr no.</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>can vote</th>
+
+        </tr>
+        {%for peoples in peoples%}
+        <tr>
+          <td>{{forloop.counter}} </td>
+          <td>{{peoples.name}}</td>
+          <td>{{peoples.age}}</td>
+          <td {%if peoples.age < 18 %} style="background: red;" {%endif%}>
+            {%if peoples.age >= 18%}
+            👍 
+            {%else%}
+            👎
+            {%endif%}
+            
+          </td>
+
+        </tr>
+        {%endfor%}
+       
+      </table>
+      {% endblock  %}
